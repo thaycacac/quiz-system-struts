@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="login" namespace="/teacher" extends="struts-default">
+        <action name="login" class="teacher.LoginAction">
+            <result name="success">/public/success.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+    </package>
+</struts>
+

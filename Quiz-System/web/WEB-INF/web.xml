@@ -14,6 +14,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>example/HelloWorld.jsp</welcome-file>
+        <welcome-file>teacher/login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
