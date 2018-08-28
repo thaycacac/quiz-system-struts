@@ -1,9 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Aug 23, 2018, 1:54:03 PM
-    Author     : Thaycacac
---%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,18 +10,17 @@
         <title>Login Quiz</title>
     </head>
     <body>
-        <div class="container">
-            <div class="container-login">
-                <h4 class="error">${error}</h4>
+        <s:div cssClass="container">
+            <s:div cssClass="container-login">
                 <h1>Student Login</h1>
-                <form action="StudentEnterRoom" method="POST">
-                    <div class="form-group">
-                        <label>Room Name</label>
-                        <input type="text" class="form-control" placeholder="Enter room" name="roomname">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Join</button>
-                </form>
-            </div>
-        </div>
+                <s:form action="JoinRoom" method="post">
+                    <s:div cssClass="form-group">
+                        <s:textfield  label="Room Name" key="roomname" cssClass="form-control"/>
+                    </s:div>
+                    <s:submit value="Join" cssClass="btn btn-primary"/>
+                </s:form>
+            </s:div>
+        </s:div>
+
     </body>
 </html>
