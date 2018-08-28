@@ -4,7 +4,6 @@
 
 <struts>
     <include file="teacher.xml"/>
-    <include file="student.xml"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
     </package>

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,21 +12,26 @@
     </head>
     <body>
         <div class="container">
-        <div class="container-login">
-            <h1>List Student </h1>
-            <hr>
-            <ul class="list-group">
-                <li class="list-group-item">Pham Ngoc Hoa
-                    <button type="button" class="btn btn-info">Info</button>
-                </li>
-                <li class="list-group-item">Tran Quang Nhat
-                    <button type="button" class="btn btn-info">Info</button>
-                </li>
-                <li class="list-group-item">Nguyen Hai Nam
-                    <button type="button" class="btn btn-info">Info</button>
-                </li>
-            </ul>
+            <div class="container-login">
+                <h1>List Student ${teacher.id}</h1>
+                <hr>
+                <ul class="list-group">
+                    <c:forEach var="quiz" items="${listqs}">
+                        <s:form action="showResult" method="post">
+                            <s:hidden name="quizsessionid" key="1"/>
+                            <!--TODO-->
+                            <li class="list-group-item">${quiz.titleQuiz}
+                                
+                                <c:if test="${quiz.isInProgress == true}">
+                                    <s:submit cssClass="btn btn-info" value="View Result" />
+                                </c:if>
+                            </li>
+                            
+                        </s:form>
+
+                    </c:forEach>
+                </ul>
+            </div>
         </div>
-    </div>
     </body>
 </html>

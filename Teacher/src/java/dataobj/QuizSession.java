@@ -15,11 +15,12 @@ public class QuizSession {
     private Date startedDate;
     private Date endDate;
     private boolean isInProgress;
+    private String titleQuiz;
 
     public QuizSession() {
     }
 
-    public QuizSession(int id, String code, int quizId, int startedBy, Date startedDate, Date endDate, boolean isInProgress) {
+    public QuizSession(int id, String code, int quizId, int startedBy, Date startedDate, Date endDate, boolean isInProgress, String titleQuiz) {
         this.id = id;
         this.code = code;
         this.quizId = quizId;
@@ -27,6 +28,7 @@ public class QuizSession {
         this.startedDate = startedDate;
         this.endDate = endDate;
         this.isInProgress = isInProgress;
+        this.titleQuiz = titleQuiz;
     }
 
     public int getId() {
@@ -85,4 +87,11 @@ public class QuizSession {
         this.isInProgress = isInProgress;
     }
 
+    public String getTitleQuiz() {
+        return titleQuiz;
+    }
+
+    public void setTitleQuiz(String titleQuiz) {
+        this.titleQuiz = titleQuiz;
+    }
 }

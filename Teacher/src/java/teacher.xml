@@ -7,7 +7,7 @@
 <struts>
     <package name="teacher" namespace="/teacher" extends="struts-default">
         <action name="login" class="teacher.LoginAction">
-            <result name="success">/public/success.jsp</result>
+            <result name="success">/teacher/listquiz.jsp</result>
             <result name="error">/teacher/login.jsp</result>
         </action>
     </package>

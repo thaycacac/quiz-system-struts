@@ -14,7 +14,7 @@
             <s:div cssClass="container-login">
                 <h1>Teacher Login</h1>
                 <s:form action="login" method="post">
-                    <s:textfield label="Name" key="username"/>               
+                    <s:textfield label="Name" key="name"/>               
                     <s:submit cssClass="btn btn-primary"/>
                 </s:form>
             </s:div>
