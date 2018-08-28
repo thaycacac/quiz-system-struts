@@ -22,22 +22,25 @@
             <div class="container-quiz">
                 <h3>${quiz.title}</h3>
                 <hr>
-                <form action="StudentSubmit" method="POST">
-                    <c:forEach var="question" items="${listQus}">
+
+                <c:forEach var="question" items="${listQus}">
+                    <form action="StudentSubmit" method="POST">
                         <p>${question.content}</p>
                         <ul class="list-group list-group-flush">
                             <% int count = 0;%>
                             <c:forEach var="answer" items="${question.listAnswer}">
                                 <li class="list-group-item">
                                     <button type="button" class="btn btn-primary" disabled><%= charAnswer[count++]%></button>
-                                    <input type="radio" name="q${question.questionId}" value="${question.questionId}-${answer.id}">${answer.content}
+                                    <input type="radio" name="question" value="${question.questionId}-${answer.id}">${answer.content}
                                 </li>
                             </c:forEach>
                         </ul>
-                    </c:forEach>
-                    <hr>
-                    <button type="submit" class="btn btn-danger finish">Submit</button>
-                </form>
+                        <button type="submit" class="btn btn-danger finish">Submit</button>
+                    </form>
+                </c:forEach>
+                <hr>
+
+
             </div>
         </div>
     </body>

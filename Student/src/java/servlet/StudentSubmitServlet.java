@@ -41,8 +41,9 @@ public class StudentSubmitServlet extends HttpServlet {
         StudentQuizAnswerDAO sqa = new StudentQuizAnswerDAO();
         
         int countAnsCorrect = 0;
-        for (Question qus : listQus) {
-            String qa = request.getParameter("q" + qus.getQuestionId());
+        
+//        for (Question qus : listQus) {
+            String qa = request.getParameter("question");
             String[] qusans = qa.trim().split("-");
             String qusId = qusans[0];
             String ansId = qusans[1];
@@ -50,17 +51,17 @@ public class StudentSubmitServlet extends HttpServlet {
             sqa.addStudentQuizAnswer(studentId, sessionId,
                     quizId, qusId, ansId);
             
-            String ansIdCorrect = ansIdCorrect(qus);
+//            String ansIdCorrect = ansIdCorrect(qus);
                        
-            if (ansId.equalsIgnoreCase(ansIdCorrect)) {
-                countAnsCorrect++;
-            }
-        }
-        NumberFormat formatter = new DecimalFormat("#0.00");        
-        double result = (double)countAnsCorrect / listQus.size() * 10;
-        
-        request.setAttribute("score", result);
-        request.getRequestDispatcher("/student/result.jsp").forward(request, response);
+//            if (ansId.equalsIgnoreCase(ansIdCorrect)) {
+//                countAnsCorrect++;
+//            }
+//        }
+//        NumberFormat formatter = new DecimalFormat("#0.00");        
+//        double result = (double)countAnsCorrect / listQus.size() * 10;
+//        
+//        request.setAttribute("score", result);
+        request.getRequestDispatcher("/student/quiz.jsp").forward(request, response);
     }
     
     private String ansIdCorrect(Question ques) {
