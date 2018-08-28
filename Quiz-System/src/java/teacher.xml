@@ -5,10 +5,10 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="login" namespace="/teacher" extends="struts-default">
+    <package name="teacher" namespace="/teacher" extends="struts-default">
         <action name="login" class="teacher.LoginAction">
             <result name="success">/public/success.jsp</result>
-            <result name="error">/public/error.jsp</result>
+            <result name="error">/teacher/login.jsp</result>
         </action>
     </package>
 </struts>

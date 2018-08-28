@@ -6,7 +6,6 @@
     <head>
         <title>Login</title>
     </head>
-
     <body>
         <s:form action="login" method="post">
             <s:textfield label="Login Id" key="username"/>
