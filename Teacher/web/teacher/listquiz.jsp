@@ -18,10 +18,10 @@
                 <ul class="list-group">
                     <c:forEach var="quiz" items="${listqs}">
                         <s:form action="showResult" method="post">
-                            <s:hidden name="quizsessionid" key="1"/>
+                            <%--<s:hidden name="quizsessionid" key="1"/>--%>
+                            <s:param name="quizsessionid">1</s:param>
                             <!--TODO-->
                             <li class="list-group-item">${quiz.titleQuiz}
-                                
                                 <c:if test="${quiz.isInProgress == true}">
                                     <s:submit cssClass="btn btn-info" value="View Result" />
                                 </c:if>
