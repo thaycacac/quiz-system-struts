@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,22 +27,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">HOAPNSE05740</th>
-                            <td class="border-quiz">1</td>
-                            <td class="border-quiz">2</td>
-                            <td class="border-quiz">3</td>
-                            <td class="border-quiz">4</td>
-                            <td class="border-quiz">5</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">NHATTQSE05740</th>
-                            <td >1</td>
-                            <td class="border-quiz-done">2</td>
-                            <td >3</td>
-                            <td class="border-quiz-done">4</td>
-                            <td class="border-quiz-done">5</td>
-                        </tr>
+                        <c:forEach var="record" items="${listRR}">
+                            <tr>
+                                <th scope="row">${record.name}</th>
+                                    <c:forEach var="answer" items="${record.listAns}">
+                                    <td class="${(answer == true) ? 'border-quiz-done' :'border-quiz' }"></td>
+                                </c:forEach>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
