@@ -4,15 +4,15 @@ package dataobj;
  *
  * @author Thaycacac
  */
-public class Teacher {
+public class Student {
 
     private int id;
     private String name;
 
-    public Teacher() {
+    public Student() {
     }
 
-    public Teacher(int id, String name) {
+    public Student(int id, String name) {
         this.id = id;
         this.name = name;
     }
