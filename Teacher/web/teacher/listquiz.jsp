@@ -17,16 +17,15 @@
                 <hr>
                 <ul class="list-group">
                     <c:forEach var="quiz" items="${listqs}">
-                        <s:form action="showResult" method="post">
-                            <%--<s:hidden name="quizsessionid" key="1"/>--%>
-                            <s:param name="quizsessionid">1</s:param>
-                            <!--TODO-->
+                        <s:form action="showResult" method="">
+                            <s:hidden name="quizsessionid" value="1"/>
+                            <!--TD-->
                             <li class="list-group-item">${quiz.titleQuiz}
                                 <c:if test="${quiz.isInProgress == true}">
                                     <s:submit cssClass="btn btn-info" value="View Result" />
                                 </c:if>
                             </li>
-                            
+
                         </s:form>
 
                     </c:forEach>

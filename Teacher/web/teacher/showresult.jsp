@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="container-teacher">
-                <h1>Funny Quiz for Workshop Class </h1>
+                <h1>${title}</h1>
                 <hr>
                 <table class="table table-hover ">
                     <thead>

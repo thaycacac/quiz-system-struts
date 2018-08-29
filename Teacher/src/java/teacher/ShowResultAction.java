@@ -1,11 +1,12 @@
 package teacher;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dal.QuizDAO;
+import dal.QuizSessionDAO;
 import dal.ResultRecordDAO;
 import dataobj.ResultRecord;
 import java.util.ArrayList;
 import java.util.Map;
-import javax.servlet.http.HttpSession;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
@@ -19,10 +20,12 @@ public class ShowResultAction extends ActionSupport implements SessionAware {
 
     public String execute() throws Exception {
         ResultRecordDAO rrd = new ResultRecordDAO();
-        System.out.println(quizsessionid);
-        System.out.println("abcd");
-
-        ArrayList<ResultRecord> listRR = rrd.getListResult(1);//TODO............
+        
+        QuizDAO qdao = new QuizDAO();
+        String title = qdao.getTitleQuizSession(quizsessionid);
+        session.put("title", title);
+        
+        ArrayList<ResultRecord> listRR = rrd.getListResult(quizsessionid);
         session.put("listRR", listRR);
 
         return SUCCESS;
