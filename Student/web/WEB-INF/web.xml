@@ -16,6 +16,10 @@
         <servlet-name>StudentSubmit</servlet-name>
         <servlet-class>servlet.StudentSubmitServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProgressQuizServlet</servlet-name>
+        <servlet-class>servlet.ProgressQuizServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StudentEnterRoom</servlet-name>
         <url-pattern>/student/StudentEnterRoom</url-pattern>
@@ -30,7 +34,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentSubmit</servlet-name>
-        <url-pattern>/student/StudentSubmit</url-pattern>
+        <url-pattern>/StudentSubmit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProgressQuizServlet</servlet-name>
+        <url-pattern>/ProgressQuizServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -42,4 +42,42 @@ public class QuestionDAO {
         }
         return null;
     }
+
+    public ArrayList<Question> getListQuestionNotDone(int quizId, ArrayList<Integer> questionDone) {
+        ArrayList<Question> listQuestion = new ArrayList<>();
+        Connection con = null;
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT qn.ID, qn.Content FROM Question qn\n"
+                    + "INNER JOIN QuestionQuiz qz\n"
+                    + "ON qn.ID = qz.QuestionID\n"
+                    + "WHERE qz.QuizID = " + quizId;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String content = rs.getString(2);
+                boolean check = true;
+                for (Integer integer : questionDone) {
+                    if (id == integer) {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check == false) {
+                    continue;
+                }
+                AnswerDAO ansDao = new AnswerDAO();
+                ArrayList<Answer> listAns = ansDao.getListAnswer(id);
+
+                Question question = new Question(id, content, listAns);
+                listQuestion.add(question);
+            }
+            return listQuestion;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

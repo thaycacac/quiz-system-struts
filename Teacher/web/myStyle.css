@@ -40,9 +40,9 @@ tr > td{
   text-align: center;   
 }
 .border-quiz {
-  border: #43A047 solid 1px;
+  border: buttonface solid 1px;
 }
 .border-quiz-done {
   background-color: #43A047;
-  border: white solid 1px;
+  border: buttonface solid 1px;
 }
