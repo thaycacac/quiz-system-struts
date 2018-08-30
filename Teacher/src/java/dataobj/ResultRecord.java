@@ -12,16 +12,18 @@ public class ResultRecord {
     private int questionId;
     private int studentId;
     private String name;
+    private double process;
     ArrayList<Boolean> listAns;
 
     public ResultRecord() {
     }
 
-    public ResultRecord(int id, int questionId, int studentId, String name, ArrayList<Boolean> listAns) {
+    public ResultRecord(int id, int questionId, int studentId, String name, double process, ArrayList<Boolean> listAns) {
         this.id = id;
         this.questionId = questionId;
         this.studentId = studentId;
         this.name = name;
+        this.process = process;
         this.listAns = listAns;
     }
 
@@ -57,6 +59,14 @@ public class ResultRecord {
         this.name = name;
     }
 
+    public double getProcess() {
+        return process;
+    }
+
+    public void setProcess(double process) {
+        this.process = process;
+    }
+
     public ArrayList<Boolean> getListAns() {
         return listAns;
     }
@@ -64,4 +74,6 @@ public class ResultRecord {
     public void setListAns(ArrayList<Boolean> listAns) {
         this.listAns = listAns;
     }
+
+   
 }

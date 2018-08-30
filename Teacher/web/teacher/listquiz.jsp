@@ -19,7 +19,7 @@
                     <c:forEach var="quiz" items="${listqs}">
                         <s:form action="showResult" method="">
                             <s:hidden name="quizsessionid" value="1"/>
-                            <!--TD-->
+                            <!--:TODO-->
                             <li class="list-group-item">${quiz.titleQuiz}
                                 <c:if test="${quiz.isInProgress == true}">
                                     <s:submit cssClass="btn btn-info" value="View Result" />

@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
         <title>Login Quiz</title>
+        <meta http-equiv="refresh" content="3">
     </head>
     <body>
         <div class="container">
@@ -27,7 +28,9 @@
                     <tbody>
                         <c:forEach var="record" items="${listRR}">
                             <tr>
-                                <th scope="row">${record.name}</th>
+                                <th scope="row">${record.name}
+                                    <p style="display: inline; float: right">${record.process}%</p>
+                                </th>
                                     <c:forEach var="answer" items="${record.listAns}">
                                     <td class="${(answer == true) ? 'border-quiz-done' :'border-quiz' }"></td>
                                 </c:forEach>

@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +34,8 @@ public class ResultRecordDAO {
                 int studentId = rs.getInt(3);
                 String name = rs.getString(4);
                 ArrayList<Boolean> listAns = listAns(studentId);
-                ResultRecord rr = new ResultRecord(id, questionId, studentId, name, listAns);
+                double process = process(studentId);
+                ResultRecord rr = new ResultRecord(id, questionId, studentId, name, process, listAns);
                 getListResult.add(rr);
             }
             rs.close();
@@ -73,5 +76,34 @@ public class ResultRecordDAO {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public double process(int studentId) {
+        Connection con = null;
+        DBContext db = new DBContext();
+        try {
+            con = db.getConnection();
+            Statement stmt = con.createStatement();
+            String sql = "select count(qq.QuestionID) as 'all', count(sqa.QuestionID)  as 'done'\n"
+                    + "from QuestionQuiz qq\n"
+                    + "left outer join StudentQuizAnswer sqa\n"
+                    + "on qq.QuestionID = sqa.QuestionID\n"
+                    + "and qq.QuizID = sqa.QuizID\n"
+                    + "and StudentID = " + studentId;
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int all = rs.getInt(1);
+                int done = rs.getInt(2);
+                double process = (double) done / all;
+                NumberFormat formatter = new DecimalFormat("#0.0000");
+                return Double.parseDouble(formatter.format(process*100));
+            }
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 }
