@@ -19,11 +19,9 @@
                     <thead>
                         <tr>
                             <th scope="col" class="bg-danger">Name</th>
-                            <th scope="col" class="bg-warning">1</th>
-                            <th scope="col" class="bg-warning">2</th>
-                            <th scope="col" class="bg-warning">3</th>
-                            <th scope="col" class="bg-warning">4</th>
-                            <th scope="col" class="bg-warning">5</th>
+                            <c:forEach var="num" items="${numQuestion}">
+                                <th scope="col" class="bg-warning">${num}</th>
+                            </c:forEach>
                         </tr>
                     </thead>
                     <tbody>

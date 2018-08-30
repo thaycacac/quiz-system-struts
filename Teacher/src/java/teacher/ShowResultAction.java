@@ -20,13 +20,20 @@ public class ShowResultAction extends ActionSupport implements SessionAware {
 
     public String execute() throws Exception {
         ResultRecordDAO rrd = new ResultRecordDAO();
-        
+
         QuizDAO qdao = new QuizDAO();
         String title = qdao.getTitleQuizSession(quizsessionid);
         session.put("title", title);
-        
+
         ArrayList<ResultRecord> listRR = rrd.getListResult(quizsessionid);
         session.put("listRR", listRR);
+
+        int numberQuestion = qdao.getNumberQuestion(quizsessionid);
+        ArrayList<Integer> listNQ = new ArrayList<>();
+        for (int i = 1; i <= numberQuestion; i++) {
+            listNQ.add(i);
+        }
+        session.put("numQuestion", listNQ);
 
         return SUCCESS;
     }
