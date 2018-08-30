@@ -19,23 +19,29 @@
                 <table class="table table-hover ">
                     <thead>
                         <tr>
-                            <th scope="col" class="bg-danger">Name</th>
-                            <c:forEach var="num" items="${numQuestion}">
+                            <th scope="col" class="bg-danger" style="color: white">Name</th>
+                                <c:forEach var="num" items="${numQuestion}">
                                 <th scope="col" class="bg-warning">${num}</th>
-                            </c:forEach>
+                                </c:forEach>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="record" items="${listRR}">
                             <tr>
-                                <th scope="row">${record.name}
+                                <th scope="row" style="text-transform: uppercase">${record.name}
                                     <p style="display: inline; float: right">${record.process}%</p>
                                 </th>
-                                    <c:forEach var="answer" items="${record.listAns}">
+                                <c:forEach var="answer" items="${record.listAns}">
                                     <td class="${(answer == true) ? 'border-quiz-done' :'border-quiz' }"></td>
                                 </c:forEach>
                             </tr>
                         </c:forEach>
+                        <tr class="table-primary">
+                            <th scope="row">All Class</th>
+                                <c:forEach var="question" items="${listTotal}">
+                                <td style="color: red">${question}%</td>
+                            </c:forEach>
+                        </tr>
                     </tbody>
                 </table>
             </div>

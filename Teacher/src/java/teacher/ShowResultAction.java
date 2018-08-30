@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import dal.QuizDAO;
 import dal.QuizSessionDAO;
 import dal.ResultRecordDAO;
+import dal.TotalClassDAO;
 import dataobj.ResultRecord;
 import java.util.ArrayList;
 import java.util.Map;
@@ -34,6 +35,11 @@ public class ShowResultAction extends ActionSupport implements SessionAware {
             listNQ.add(i);
         }
         session.put("numQuestion", listNQ);
+
+        TotalClassDAO tcd = new TotalClassDAO();
+        int numberStudent = tcd.getNumberStudent(quizsessionid);
+        ArrayList<String> listTotal = tcd.listTotal(numberStudent, quizsessionid);
+        session.put("listTotal", listTotal);
 
         return SUCCESS;
     }
