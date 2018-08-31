@@ -12,7 +12,9 @@ The database schema diagram as follow:
 You can used Java Web Standard or Struts framework to create this part, but Struts framework is a preferred one with maximum score will be 10, otherwise, the maximum score is limited at 8.
 You are requested to do following tasks:
 1.	Create a web page for teacher to input his name, and based on the name, the teacher identification will be specified.
-2.	Create a web page to show the live progress of latest session quiz which is running as follow:
+2.	Create a web page to show the live progress of latest session quiz which is running.
+
+
 
 
 >     **Student**
@@ -55,4 +57,4 @@ You are requested to do following tasks:
 
 ### **Authors**
 ---
-- **Thaycacac**
+- [**Thaycacac**](https://github.com/thaycacac)
