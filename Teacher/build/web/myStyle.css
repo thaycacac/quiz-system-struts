@@ -1,0 +1,48 @@
+body {
+  background-color: #43A047 !important;
+}
+
+/* LOGIN, REGISTER */
+.container-login {
+  width: 60%;
+  margin: 50px auto 50px auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 60px;
+}
+
+/* QUIZ */
+.container-quiz {
+  width: 80%;
+  margin: 50px auto 50px auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 60px;
+}
+
+.finish {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.error {
+  color: red;
+}
+.container-teacher {
+  border-radius: 20px;
+  margin: 25px;
+  padding: 50px;
+  background-color: white !important;
+}
+th.bg-warning{
+  text-align: center;   
+}
+tr > td{
+  text-align: center;   
+}
+.border-quiz {
+  border: buttonface solid 1px;
+}
+.border-quiz-done {
+  background-color: #43A047;
+  border: buttonface solid 1px;
+}
